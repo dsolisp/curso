@@ -43,6 +43,16 @@ uv run pytest -v
 
 Postman es excelente… hasta que necesitas: lógica compleja (reintentos, loops), compartir código con el equipo de desarrollo, versionar tests como código revisable línea por línea, o integrar los tests al mismo repo del producto. En ese momento quieres un **lenguaje de programación**.
 
+**El mapa del ecosistema** (para que ubiques lo que verás en ofertas de trabajo):
+
+| Herramienta | Lenguaje | Cuándo la eliges |
+|---|---|---|
+| **pytest + httpx/requests** | Python | Equipos Python-first — **la ruta de este curso** |
+| **REST-assured** | Java | El producto y el equipo viven en Java/Spring |
+| **Karate DSL** | Gherkin sobre JVM (*Java Virtual Machine*) | Equipos mixtos dev/QA en ecosistema Java que quieren tests legibles sin programar |
+
+Las tres hacen lo mismo que aprenderás hoy: requests, validaciones, data-driven y paralelo. **El patrón es el que importa; la sintaxis se aprende en una semana.** Elegimos Python porque es el lenguaje base del curso y no requiere instalar la JVM.
+
 ### 2. httpx: el "Send" de Python
 
 **httpx** es la librería HTTP moderna de Python (sucesora espiritual de `requests`, con la misma sintaxis y soporte async). Cada concepto de Postman tiene su equivalente directo:
@@ -191,6 +201,8 @@ def cumple_contrato(recurso: dict, contrato: dict) -> bool:
 ```
 
 Valida presencia y tipo de cada campo — el mismo concepto de contrato de la S3. (En proyectos grandes existe la librería `jsonschema`, que usa los mismos schemas que Postman.)
+
+> **El siguiente nivel de los contratos — Pact:** lo que hicimos valida el contrato desde el lado del **consumidor**. Existe una disciplina completa llamada *contract testing* consumidor/proveedor, cuya herramienta estándar es **Pact**: el consumidor publica el contrato que espera y el proveedor lo verifica automáticamente en su propio CI antes de desplegar. Es el mecanismo profesional para que microservicios no se rompan entre sí. Quédate con el concepto — la base (validar estructura, no solo status) ya la dominas.
 
 ### 5. Corre el CRUD completo
 

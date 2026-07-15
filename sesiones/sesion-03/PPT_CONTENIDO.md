@@ -17,7 +17,7 @@
 - S3 → Hoy bajamos una capa: probamos **directo la API**, sin navegador
 - **Por qué importa:** los tests de API son ~10× más rápidos y estables que los de UI
 
-### Slide 3 — ¿Qué es una API REST? (5 min)
+### Slide 3 — ¿Qué es una API REST? (y sus vecinos SOAP y GraphQL) (5 min)
 - **API** = *Application Programming Interface* — el "mesero" entre apps
 - **REST** = *Representational State Transfer* — todo es un recurso con URL
 - Pides con **verbos HTTP**, recibes **JSON** (*JavaScript Object Notation*)
@@ -26,6 +26,9 @@
 GET https://jsonplaceholder.typicode.com/posts/1
 → { "userId": 1, "id": 1, "title": "...", "body": "..." }
 ```
+
+- Los otros dos estilos que existen: **SOAP** (*Simple Object Access Protocol* — XML formal, banca/legados) y **GraphQL** (un endpoint, el cliente elige los campos)
+- Los conceptos de hoy (status, payload, contratos) aplican a los tres — el curso domina REST, el estándar de facto
 
 ### Slide 4 — Los 5 verbos = CRUD (5 min)
 | Verbo | CRUD | Ejemplo |

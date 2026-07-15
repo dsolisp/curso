@@ -15,6 +15,8 @@
 - Postman brilla para **explorar** y **diseñar**
 - Se queda corto cuando necesitas: lógica compleja, code review línea a línea, tests en el mismo repo del producto
 - **No es Postman VS Python:** es Postman para explorar + Python para escalar
+- El mapa del mercado: **pytest + httpx** (Python — nuestra ruta) · **REST-assured** (Java) · **Karate DSL** (Gherkin sobre JVM, equipos mixtos Java)
+- El patrón es el mismo en las tres — la sintaxis se aprende en una semana
 
 ### Slide 3 — httpx: el "Send" de Python (5 min)
 | Postman | Python (httpx) |
@@ -109,6 +111,7 @@ def test_listar_posts_devuelve_100(api):
 - Título único: `f"Post QA {time.time_ns()}"` (el `Date.now()` de Python)
 - Contrato KISS: `CONTRATO_POST = {"userId": int, "id": int, "title": str, "body": str}` + `cumple_contrato()`
 - En proyectos grandes: librería `jsonschema` (mismos schemas que Postman)
+- El siguiente nivel: **contract testing** consumidor/proveedor con **Pact** — el consumidor publica el contrato, el proveedor lo verifica en su CI (concepto, no lab)
 
 ### Slide 14 — MINI-LAB (7 min)
 - Todos corren: `uv run pytest tests/test_posts_crud.py -v`
